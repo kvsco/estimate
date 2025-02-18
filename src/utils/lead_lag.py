@@ -7,7 +7,7 @@ insights and applications" (Cucuringu et al. 2019) clustering algo
 
 import itertools
 import dcor
-import iisignature
+# import iisignature
 import numpy as np
 import pandas as pd
 from sklearn import cluster

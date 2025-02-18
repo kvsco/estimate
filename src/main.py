@@ -22,7 +22,7 @@ def run_model(config, seed_num):
 
 def get_symbols_sp500():
     symbols = np.load("data/US/sp500/baseline_data_sp500.npy", allow_pickle=True).item()
-    return list(map(str, symbols.keys()))
+    return list(map(str, symbols.keys()))[:30]
 
 if __name__ == '__main__':
     sys.path.append(os.getcwd())

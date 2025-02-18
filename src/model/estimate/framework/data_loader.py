@@ -70,7 +70,7 @@ class DataLoader(DataLoaderBase):
         for sym in train_data_storage:
             _, df_x_train, df_y_train = self._preprocess_data(train_data_storage, sym, self._indicators)
             _, df_x_test, df_y_test = self._preprocess_data(test_data_storage, sym, self._indicators)
-            buy_prob_threshold.append(df_y_train.mean())
+            buy_prob_threshold.append(df_y_train.mean()) # 분위수 쓰는게 좋을수도 qunatile(0.75)
             sell_prob_threshold.append(-df_y_train.mean())
             train_x = df_x_train.to_numpy()
             train_y = df_y_train.to_numpy()

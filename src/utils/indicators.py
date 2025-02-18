@@ -146,9 +146,9 @@ def bb(df, features):
     return df, features
 
 def trend_return(df, features, n_step_ahead):
-    df['daily_return'] = df['close'].pct_change()
+    df['daily_return'] = df['close'].pct_change() # 전일 대비 수익률 계산
     df['stability'] = df['daily_return'].shift(1).rolling(5).std()
-    df['trend_return'] = df['close'].pct_change(periods=n_step_ahead) # n_step_ahead=5 is a week
+    df['trend_return'] = df['close'].pct_change(periods=n_step_ahead) # n_step_ahead=5 is a week 일주일 후 예측.
     df['trend_return'] = df['trend_return'].shift(-n_step_ahead)
 
     features.extend(["trend_return"])

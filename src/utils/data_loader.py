@@ -72,17 +72,17 @@ class DataLoaderBase():
             slow_period = indicators["kdj"]["slow_period"]
             df, features = indi.kdj(df, features, [medium_period, slow_period])
 
-        if "rsi" in indicators:  
+        if "rsi" in indicators:  # 과매수, 과매도를 판단하는 상대 강도 지수
             medium_period = indicators["rsi"]["medium_period"]
             slow_period = indicators["rsi"]["slow_period"]          
             df, features = indi.rsi(df, features, [medium_period, slow_period])
 
-        if "macd" in indicators:    
+        if "macd" in indicators:  # 이동평균 수렴,발산
             medium_period = indicators["macd"]["medium_period"]
             slow_period = indicators["macd"]["slow_period"]        
-            df, features = indi.macd(df, features, 9, 12, 26)
+            df, features = indi.macd(df, features, 9, 12, 26) # 시그널 , 단기, 장기
         
-        if "mfi" in indicators:
+        if "mfi" in indicators:  # money flow index. 거래량을 고려한 RSI 지표.
             medium_period = indicators["rsi"]["medium_period"]
             slow_period = indicators["rsi"]["slow_period"]
             df, features = indi.mfi(df, features, [medium_period, slow_period])
